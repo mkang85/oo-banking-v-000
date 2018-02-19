@@ -1,4 +1,4 @@
-  require 'pry'
+
 class Transfer
   attr_accessor :status, :sender, :receiver, :amount
   def initialize(sender, receiver, amount)
@@ -13,9 +13,8 @@ class Transfer
   end
 
   def execute_transaction
-    if @sender.valid? == false
+    if @sender.valid? == true
       @status = 'rejected'
-      binding.pry
       "Transaction rejected. Please check your account balance."
     else
       @sender.balance -= @amount
