@@ -23,6 +23,11 @@ class Transfer
     end
   end
 
-  
+  def reverse_transfer
+    if @status == 'complete' || @status == 'rejected'
+      @receiver.balance -= @amount
+      @sender.balance += @amount
+    end
+  end
 
 end
